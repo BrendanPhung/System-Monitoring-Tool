@@ -6,9 +6,11 @@ int main() {
 }
 
 //git add .
-//git commit
+//git commit -m "message"
 //git push 
 
-//git pull
+//git pull origin master
 //git reset --hard origin/master to overwrite local
 // code . to open to curent directory
+// git branch to check branch
+//git checkout brnach to checkout branch
