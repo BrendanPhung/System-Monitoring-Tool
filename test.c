@@ -13,4 +13,4 @@ int main() {
 //git reset --hard origin/master to overwrite local
 // code . to open to curent directory
 // git branch to check branch
-//git checkout brnach to checkout branch
+//git checkout branch to checkout branch
