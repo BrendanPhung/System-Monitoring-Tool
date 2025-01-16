@@ -7,4 +7,8 @@ int main() {
 
 //git add .
 //git commit
-//git push edit
+//git push 
+
+//git pull
+//git reset --hard origin/master to overwrite local
+// code . to open to curent directory
