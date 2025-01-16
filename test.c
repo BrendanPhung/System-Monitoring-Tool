@@ -1,6 +1,10 @@
 #include <stdio.h>
 
 int main() {
-    print("Hello, WSL!\n");
+    ntf("Hello, WSL!\n");
     return 0;
 }
+
+//git add .
+//git commit
+//git push
