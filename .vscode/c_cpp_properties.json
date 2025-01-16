@@ -1,16 +1,18 @@
 {
-    "configurations": [
+  "configurations": [
       {
-        "name": "Linux",
-        "includePath": [
-          "/usr/include",
-          "/usr/local/include"
-        ],
-        "compilerPath": "/usr/bin/gcc",
-        "cStandard": "c99",  // Set C standard to C99
-        "cppStandard": "c++17",  // Optional, for C++ standard
-        "intelliSenseMode": "linux-gcc-x64"
+          "name": "WSL",
+          "includePath": [
+              "${workspaceFolder}/**",
+              "/usr/include",               // Standard system headers
+              "/usr/local/include"          // Optional, for custom libraries
+          ],
+          "defines": [],
+          "compilerPath": "/usr/bin/gcc",
+          "cStandard": "c99",               // Set to C99
+          "cppStandard": "c++17",
+          "intelliSenseMode": "linux-gcc-x64"
       }
-    ],
-    "version": 4
-  }
+  ],
+  "version": 4
+}

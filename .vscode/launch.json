@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(gdb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "/mnt/c/Users/bphun/.vscode/projects/System-Monitoring-Tool/${fileBasenameNoExtension}", // Adjusted path
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "/mnt/c/Users/bphun/.vscode/projects/System-Monitoring-Tool", // Adjusted path
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb", // Path to gdb in WSL
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "build" // Matches the build task
+        }
+    ]
+}

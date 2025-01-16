@@ -1,7 +1,17 @@
 #include <stdio.h>
+#include <sys/sysinfo.h>
 
 int main() {
     printf("Hello, WSL!\n");
+
+    struct sysinfo *info;
+
+    if (sysinfo(info) == 1) {
+        printf("Success of Info\n");
+    }
+
+    printf("Success\n");
+    
     return 0;
 }
 
