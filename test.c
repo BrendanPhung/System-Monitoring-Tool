@@ -3,6 +3,7 @@
 #include <sys/sysinfo.h>
 #include <unistd.h>
 #include <getopt.h>
+#include <string.h>
 
 int main(int argc, char** argv) {
 
@@ -22,6 +23,8 @@ int main(int argc, char** argv) {
 
 
     int opt;
+
+    int option_index = 0;
 
     // Add Options
     static struct option long_options[] = {
@@ -44,7 +47,14 @@ int main(int argc, char** argv) {
     int samples_flag = 0;
     int tdelay_flag = 0;
 
-    while ((opt = getopt_long(argc, argv, "", long_options, NULL)) != -1) {
+    while ((opt = getopt_long(argc, argv, "", long_options, &option_index)) != -1) {
+
+        //argv[optind - 1] + 2 to access the pointer to the opt after --
+        if (strcmp(argv[optind - 1] + 2, long_options[option_index].name) != 0) {
+            printf("Invalid option: %s\n", argv[optind - 1]);
+            break;
+        }
+
         switch (opt) {
             case 'c':
                 printf("--cpu selected\n");
@@ -62,12 +72,14 @@ int main(int argc, char** argv) {
                 if (optarg != NULL) {
                     samples = atoi(optarg);
                 }
+                samples_flag = 1;
                 printf ("--samples selected with value `%s'\n", optarg);
                 break;
             case 't':
                 if (optarg != NULL) {
                     tdelay = atoi(optarg);
                 }
+                tdelay_flag = 1;
                 printf ("--tdelay selected with value `%s'\n", optarg);
                 break;
         }
@@ -89,12 +101,12 @@ int main(int argc, char** argv) {
         }
     }
 
-    if ((samples_flag == 0) && (tdelay_flag == 0)) {
-        samples = atoi(argv[2]);
-        tdelay = atoi(argv[3]);
-        printf("samples = %d\n", samples);
-        printf("tdelay = %d\n", tdelay);
-    }
+    // if ((samples_flag == 0) && (tdelay_flag == 0)) {
+    //     samples = atoi(argv[2]);
+    //     tdelay = atoi(argv[3]);
+    //     printf("samples = %d\n", samples);
+    //     printf("tdelay = %d\n", tdelay);
+    // }
 
     
 
@@ -112,3 +124,6 @@ int main(int argc, char** argv) {
 // code . to open to curent directory
 // git branch to check branch
 //git checkout branch to checkout branch
+
+//gcc test.c -o test
+
